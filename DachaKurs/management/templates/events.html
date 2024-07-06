@@ -1,0 +1,140 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="ru">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Мероприятия</title>-->
+<!--    <link rel="stylesheet" href="/static/style2.css">-->
+
+<!--</head>-->
+<!--<body>-->
+<!--    <header>-->
+<!--        <div class="header-top">-->
+
+<!--            <div class="contacts">-->
+<!--                <h1>Мероприятия</h1>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="header-main">-->
+<!--            <div class="logo">-->
+<!--                <img src="/static/media/logo1.png" alt="Логотип вашего магазина">-->
+<!--            </div>-->
+<!--            <div class="search-bar">-->
+<!--                <input type="text" placeholder="Поиск по сайту...">-->
+<!--                <button>Найти</button>-->
+<!--            </div>-->
+<!--            <div class="header-buttons">-->
+
+<!--                <div class="phone-numbers">-->
+<!--                    <p>Ежедневно с 9:00 до 21:00</p>-->
+<!--                    <p>8 (800) 800-00-00</p>-->
+<!--                    <p>youremail@mailbox.ru</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </header>-->
+
+<!--    <nav class="user-actions">-->
+<!--        <a href="{% url 'home' %}" class="button">На главную</a>-->
+<!--        <a href="{% url 'add_event' %}" class="button">Добавить мероприятие</a>-->
+<!--    </nav>-->
+
+<!--    <main>-->
+<!--        <section class="events">-->
+<!--            {% for event in events %}-->
+<!--                <div class="member-card">-->
+<!--                    <article class="events__card" onclick="window.location='{% url 'event_detail' event.id %}'">-->
+<!--                        <div class="events__image-wrapper">-->
+<!--                            {% if event.photo %}-->
+<!--                            <img src="{{ event.photo.url }}" alt="Фото {{ event.title }}" class="events__card-image">-->
+<!--                            {% endif %}-->
+<!--                        </div>-->
+<!--                        <h2 class="events__card-title">{{ event.title }}</h2>-->
+<!--                    </article>-->
+<!--                </div>-->
+<!--            {% endfor %}-->
+<!--        </section>-->
+<!--    </main>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Мероприятия</title>
+    <link rel="stylesheet" href="/static/style2.css">
+    <style>
+        @media print {
+            .header-main, .user-actions, .search-bar, .header-buttons, .print-button {
+                display: none;
+            }
+            body {
+                font-size: 12pt;
+                line-height: 1.5;
+                color: #000;
+                background: #fff;
+            }
+            header, main, .events {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            .events__card {
+                page-break-inside: avoid;
+            }
+            .events__image-wrapper img {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="contacts">
+                <h1>Мероприятия</h1>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="logo">
+                <img src="/static/media/logo1.png" alt="Логотип вашего магазина">
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Поиск по сайту...">
+                <button>Найти</button>
+            </div>
+            <div class="header-buttons">
+                <div class="phone-numbers">
+                    <p>Ежедневно с 9:00 до 21:00</p>
+                    <p>8 (800) 800-00-00</p>
+                    <p>youremail@mailbox.ru</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="user-actions">
+        <a href="{% url 'home' %}" class="button">На главную</a>
+        <a href="{% url 'add_event' %}" class="button">Добавить мероприятие</a>
+        <button class="button" onclick="window.print()">Печать</button>
+    </nav>
+
+    <main>
+        <section class="events">
+            {% for event in events %}
+                <div class="member-card">
+                    <article class="events__card" onclick="window.location='{% url 'event_detail' event.id %}'">
+                        <div class="events__image-wrapper">
+                            {% if event.photo %}
+                            <img src="{{ event.photo.url }}" alt="Фото {{ event.title }}" class="events__card-image">
+                            {% endif %}
+                        </div>
+                        <h2 class="events__card-title">{{ event.title }}</h2>
+                    </article>
+                </div>
+            {% endfor %}
+        </section>
+    </main>
+</body>
+</html>

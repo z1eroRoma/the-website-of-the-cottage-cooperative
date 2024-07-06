@@ -1,0 +1,111 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="ru">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>{{ resource.title }} - Дачный кооператив</title>-->
+<!--    <link rel="stylesheet" type="text/css" href="/static/style.css">-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>{{ resource.title }}</h1>-->
+<!--    <p>{{ resource.content }}</p>-->
+
+<!--    <form method="post" style="display: inline;">-->
+<!--        {% csrf_token %}-->
+<!--        <button type="submit" onclick="return confirm('Вы уверены, что хотите удалить эту запись?')">Удалить запись</button>-->
+<!--    </form>-->
+
+<!--    <a href="{% url 'home' %}">На главную</a>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ resource.title }} - Дачный кооператив</title>
+    <link rel="stylesheet" type="text/css" href="/static/detail.css">
+    <style>
+        .resource-container {
+            background-color: #fff;
+            padding: 20px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            text-align: left;
+        }
+        .resource-container h1 {
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        }
+        .resource-container p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .button-group {
+            text-align: center;
+        }
+        .button-group a, .button-group button {
+            background-color: #86e01f;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            color: #000;
+            text-decoration: none;
+        }
+        .button-group a:hover, .button-group button:hover {
+            background-color: #C2F56E;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="contacts">
+                <h1>Дачный кооператив "Ромашка"</h1>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="logo">
+                <img src="/static/media/logo1.png" alt="Логотип вашего магазина">
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Поиск по сайту...">
+                <button>Найти</button>
+            </div>
+            <div class="header-buttons">
+                <div class="phone-numbers">
+                    <p>Ежедневно с 9:00 до 21:00</p>
+                    <p>8 (800) 800-00-00</p>
+                    <p>youremail@mailbox.ru</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">На главную</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="resource-container">
+            <h1>{{ resource.title }}</h1>
+            <p>{{ resource.content }}</p>
+
+            <div class="button-group">
+                <form method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" onclick="return confirm('Вы уверены, что хотите удалить эту запись?')">Удалить запись</button>
+                </form>
+                <a href="{% url 'resources' %}">Назад</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

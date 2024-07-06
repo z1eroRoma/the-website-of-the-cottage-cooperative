@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить участника - Дачный кооператив</title>
+    <link rel="stylesheet" type="text/css" href="/static/add.css">
+<!--    <style>-->
+<!--        .form-container {-->
+<!--            background-color: #fff;-->
+<!--            padding: 20px;-->
+<!--            border: 2px solid #ddd;-->
+<!--            border-radius: 10px;-->
+<!--            max-width: 600px;-->
+<!--            margin: 0 auto;-->
+<!--            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);-->
+<!--        }-->
+<!--        .form-container h1 {-->
+<!--            text-align: center;-->
+<!--            margin-bottom: 20px;-->
+<!--        }-->
+<!--        .form-container form {-->
+<!--            display: flex;-->
+<!--            flex-direction: column;-->
+<!--        }-->
+<!--        .form-container form .form-group {-->
+<!--            margin-bottom: 15px;-->
+<!--        }-->
+<!--        .form-container form .form-group label {-->
+<!--            margin-bottom: 5px;-->
+<!--            font-weight: bold;-->
+<!--        }-->
+<!--        .form-container form .form-group input, .form-container form .form-group select {-->
+<!--            padding: 10px;-->
+<!--            border: 1px solid #ddd;-->
+<!--            border-radius: 5px;-->
+<!--            width: 100%;-->
+<!--        }-->
+<!--        .form-container form button {-->
+<!--            padding: 10px;-->
+<!--            background-color: #86e01f;-->
+<!--            border: none;-->
+<!--            border-radius: 5px;-->
+<!--            cursor: pointer;-->
+<!--            font-size: 16px;-->
+<!--        }-->
+<!--        .form-container form button:hover {-->
+<!--            background-color: #C2F56E;-->
+<!--        }-->
+<!--    </style>-->
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="contacts">
+                <h1>Дачный кооператив "Ромашка"</h1>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="logo">
+                <img src="/static/media/logo1.png" alt="Логотип вашего магазина">
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Поиск по сайту...">
+                <button>Найти</button>
+            </div>
+            <div class="header-buttons">
+                <div class="phone-numbers">
+                    <p>Ежедневно с 9:00 до 21:00</p>
+                    <p>8 (800) 800-00-00</p>
+                    <p>youremail@mailbox.ru</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+            <a href="{% url 'home' %}">На главную</a>
+    </nav>
+
+    <main>
+        <section class="form-container">
+            <h1>Добавить участника</h1>
+            <form method="post" action="{% url 'add_member' %}" enctype="multipart/form-data">
+                <div class="form-group">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                </div>
+                <button type="submit">Добавить участника</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

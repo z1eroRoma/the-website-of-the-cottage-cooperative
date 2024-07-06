@@ -1,0 +1,184 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.header-top {
+    background-color: #86e01f;
+    padding: 10px;
+    text-align: center;
+}
+
+.header-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px 50px;
+    border-bottom: 2px solid #86e01f;
+}
+
+.header-main .logo img {
+    max-height: 50px;
+}
+
+.search-bar {
+    flex-grow: 1;
+    margin: 0 20px;
+    display: flex;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px 0 0 5px;
+    border-right: none;
+}
+
+.search-bar button {
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 0 5px 5px 0;
+    background-color: #86e01f;
+    cursor: pointer;
+}
+
+.header-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.header-buttons .phone-numbers p {
+    margin: 0;
+}
+
+.header-buttons button {
+    background-color: #86e01f;
+    border: none;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+nav {
+    background-color: #f4f4f4;
+    padding: 10px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+main {
+    padding: 20px 50px;
+}
+
+.plot-details-container {
+    background-color: #fff;
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.plot-details-container h1 {
+    margin-bottom: 20px;
+}
+
+.plot-details-container p {
+    margin: 10px 0;
+}
+
+.plot-details-container a, .plot-details-container button {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #86e01f;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    color: #000;
+}
+
+.plot-details-container button:hover, .plot-details-container a:hover {
+    background-color: #4CAF50;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px 50px;
+    border-bottom: 2px solid #86e01f;
+}
+
+.plot-photo {
+    width: 350px;
+    height: 300px;
+}
+
+.event-photo {
+    width: 350px;
+    height: 250px;
+}
+
+.event-container {
+    background-color: #fff;
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    text-align: center;
+}
+.event-container h1 {
+    margin-bottom: 10px;
+    color: #333;
+}
+.event-container p {
+    color: #666;
+    margin: 5px 0;
+}
+.event-buttons {
+    margin-top: 20px;
+}
+.event-buttons a {
+    display: inline-block;
+    margin: 5px 10px;
+    padding: 10px 20px;
+    background-color: #86e01f;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+}
+.event-buttons a:hover {
+    background-color: #C2F56E;
+}

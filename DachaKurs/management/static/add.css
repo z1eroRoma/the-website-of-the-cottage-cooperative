@@ -1,0 +1,185 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.header-top {
+    background-color: #86e01f;
+    padding: 10px;
+    text-align: center;
+}
+
+.header-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px 50px;
+    border-bottom: 2px solid #86e01f;
+}
+
+.header-main .logo img {
+    max-height: 50px;
+}
+
+.search-bar {
+    flex-grow: 1;
+    margin: 0 20px;
+    display: flex;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px 0 0 5px;
+    border-right: none;
+}
+
+.search-bar button {
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 0 5px 5px 0;
+    background-color: #86e01f;
+    cursor: pointer;
+}
+
+.header-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.header-buttons .phone-numbers p {
+    margin: 0;
+}
+
+.header-buttons button {
+    background-color: #86e01f;
+    border: none;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+nav {
+    background-color: #f4f4f4;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav  a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+main {
+    padding: 20px 50px;
+}
+
+.form-container {
+    background-color: #fff;
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.form-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container form .form-group {
+    margin-bottom: 10px;
+}
+
+.form-container form .form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-container form .form-group input, .form-container form .form-group select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.form-container form button {
+    padding: 10px;
+    background-color: #86e01f;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.form-container form button:hover {
+    background-color: #86e01f;
+}
+
+.header-buttons button {
+    background-color: #86e01f;
+    border: none;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.add-event-container {
+    background-color: #fff;
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.add-event-container h1 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+.add-event-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.add-event-container form button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #86e01f;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    color: #000;
+}
+.add-event-container form button:hover {
+    background-color: #C2F56E;
+}

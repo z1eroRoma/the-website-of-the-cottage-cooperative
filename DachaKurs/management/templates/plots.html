@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Список участков</title>
+    <link rel="stylesheet" href="/static/style2.css">
+</head>
+<body>
+    <header>
+        <div class="header-top">
+
+            <div class="contacts">
+                <h1>Список участков</h1>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="logo">
+                <a href="{% url 'home' %}"><img src="/static/media/logo1.png" alt="Логотип вашего магазина"></a>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Поиск по сайту...">
+                <button>Найти</button>
+            </div>
+            <div class="header-buttons">
+                <div class="phone-numbers">
+                    <p>Ежедневно с 9:00 до 21:00</p>
+                    <p>8 (800) 800-00-00</p>
+                    <p>youremail@mailbox.ru</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="user-actions">
+        <a href="{% url 'home' %}" class="button">На главную</a>
+        <a href="{% url 'add_plot' %}" class="button">Добавить участок</a>
+    </nav>
+
+    <main>
+            <section class="plots">
+                <div class="plots-list">
+                    {% for plot in plots %}
+                    <div class="plot-card"><a href="{% url 'plot_detail' plot.id %}">
+                        <div class="plot-image">
+                            {% if plot.photo %}
+                                <img src="{{ plot.photo.url }}" alt="Фото {{ plot.plot_number }}">
+                            {% endif %}
+                        </div>
+                        <div class="plot-details">
+                            <h4>{{ plot.plot_number }}</h4>
+                            <p>Size: {{ plot.area }}m²</p>
+                            <p>Owner: {{ plot.owner.last_name }}</p>
+                        </div>
+                    </a></div>
+                    {% endfor %}
+                </div>
+            </section>
+    </main>
+</body>
+</html>
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="ru">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Список участков</title>-->
+<!--    <link rel="stylesheet" href="/static/test.css">-->
+<!--</head>-->
+<!--<body>-->
+<!--    <header>-->
+<!--        <h1>Участки</h1>-->
+<!--        <nav>-->
+<!--            <a href="{% url 'home' %}">На главную</a>-->
+<!--            <a href="{% url 'add_plot' %}">Добавить участок</a>-->
+<!--        </nav>-->
+<!--    </header>-->
+
+<!--    <main>-->
+<!--        <section class="filters">-->
+<!--            <button class="filter-button" data-size="100">Size: 100m²</button>-->
+<!--            <button class="filter-button" data-size="200">Size: 200m²</button>-->
+<!--            <button class="filter-button" data-size="300">Size: 300m²</button>-->
+<!--            <button class="filter-button" data-price="1000">Price: 1000 rubles</button>-->
+<!--            <button class="filter-button" data-price="2000">Price: 2000 rubles</button>-->
+<!--        </section>-->
+
+<!--        <section class="plots">-->
+<!--            <div class="plots-list">-->
+<!--                {% for plot in plots %}-->
+<!--                <div class="plot-card">-->
+<!--                    <div class="plot-image">-->
+<!--                        {% if plot.photo %}-->
+<!--                        <img src="{{ plot.photo.url }}" alt="Фото {{ plot.plot_number }}">-->
+<!--                        {% endif %}-->
+<!--                    </div>-->
+<!--                    <div class="plot-details">-->
+<!--                        <h4>{{ plot.plot_number }}</h4>-->
+<!--                        <p>Size: {{ plot.area }}m²</p>-->
+<!--                        <p>Owner: {{ plot.owner.last_name }}</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                {% endfor %}-->
+<!--            </div>-->
+<!--        </section>-->
+
+<!--        <section class="pagination">-->
+<!--            <button class="pagination-button">1</button>-->
+<!--            <button class="pagination-button">2</button>-->
+<!--            <button class="pagination-button">3</button>-->
+<!--        </section>-->
+<!--    </main>-->
+<!--</body>-->
+<!--</html>-->

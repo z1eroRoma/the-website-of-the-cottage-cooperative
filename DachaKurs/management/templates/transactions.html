@@ -1,0 +1,129 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="ru">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Финансовый знос - Дачный кооператив</title>-->
+<!--    <link rel="stylesheet" type="text/css" href="/static/style.css">-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>Финансовый знос</h1>-->
+<!--    <a href="{% url 'home' %}">На главную</a>-->
+
+<!--    <h2>Список финансовых операций:</h2>-->
+<!--    <ul>-->
+<!--        {% for transaction in transactions %}-->
+<!--            <li>Пользователь: {{ transaction.user.username }}, Членский взнос: {{ transaction.membership_fee }}, Дата операции: {{ transaction.date }}</li>-->
+<!--        {% endfor %}-->
+<!--    </ul>-->
+
+<!--    <p>Общая сумма взносов: {{ total_membership_fee }}</p>-->
+
+<!--    <h2>Добавить новую операцию:</h2>-->
+<!--    <form method="post">-->
+<!--        {% csrf_token %}-->
+<!--        {{ form.as_p }}-->
+<!--        <button type="submit">Добавить операцию</button>-->
+<!--    </form>-->
+<!--</body>-->
+<!--</html>-->
+
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Финансовый взнос - Дачный кооператив</title>
+    <link rel="stylesheet" type="text/css" href="/static/style2.css">
+    <style>
+        .transaction-card {
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: 0.3s;
+            padding: 20px;
+            margin: 10px 0;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .transaction-card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+        .transaction-card h3 {
+            margin-top: 0;
+        }
+        .total-fee {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .transactions-list {
+            flex: 1;
+            margin-left: 20px;
+        }
+        .add-transaction-form {
+            flex: 1;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+
+            <div class="contacts">
+                <h1>Финансовый взнос</h1>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="logo">
+                <img src="/static/media/logo1.png" alt="Логотип вашего магазина">
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Поиск по сайту...">
+                <button>Найти</button>
+            </div>
+            <div class="header-buttons">
+                <div class="phone-numbers">
+                    <p>Ежедневно с 9:00 до 21:00</p>
+                    <p>8 (800) 800-00-00</p>
+                    <p>youremail@mailbox.ru</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="user-actions">
+            <a href="{% url 'home' %}" class="button">На главную</a>
+    </nav>
+
+    <main>
+       <div class="container">
+            <section class="add-transaction-form">
+                <h2 class="user-actions">Добавить новую операцию:</h2>
+                <form method="post" class="user-actions">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="button">Добавить операцию</button>
+                </form>
+            </section>
+            <section class="transactions-list">
+                <h2>Список финансовых операций:</h2>
+                <div class="transactions">
+                    {% for transaction in transactions %}
+                        <div class="transaction-card">
+                            <h3>Пользователь: {{ transaction.user.username }}</h3>
+                            <p>Членский взнос: {{ transaction.membership_fee }} ₽</p>
+                            <p>Дата операции: {{ transaction.date }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+                <p class="total-fee">Общая сумма взносов: {{ total_membership_fee }} ₽</p>
+            </section>
+        </div>
+    </main>
+</body>
+</html>

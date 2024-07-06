@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Дачный кооператив "Ромашка"</title>
+    <link rel="stylesheet" href="/static/style2.css">
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="location">
+                <h1>Добро пожаловать в дачный кооператив "Ромашка"</h1>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="logo">
+                <img src="/static/media/logo1.png" alt="Логотип вашего магазина">
+            </div>
+            {% if user.is_authenticated %}
+            <div class="search-bar">
+                <input type="text" placeholder="Поиск по сайту...">
+                <button type="submit">Найти</button>
+            </div>
+            {% else %}
+            {% endif %}
+            <div class="header-buttons">
+                <div class="phone-numbers">
+                    <p>Ежедневно с 9:00 до 21:00</p>
+                    <p>8 (800) 800-00-00</p>
+                    <p>youremail@mailbox.ru</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="user-actions">
+        {% if user.is_authenticated %}
+                <p>Привет, {{ user.username }}!</p>
+                <a href="{% url 'plot_list' %}" class="button">Участки</a>
+                <a href="{% url 'member_list' %}" class="button">Члены совета</a>
+                <a href="{% url 'events' %}" class="button">Мероприятия</a>
+                <a href="{% url 'resources' %}" class="button">Полезные материалы</a>
+                <a href="{% url 'logout' %}" class="button">Выйти</a>
+            {% else %}
+                <a href="{% url 'login' %}" class="button">Авторизация</a>
+                <a href="{% url 'signup' %}" class="button">Регистрация</a>
+                <a href="{% url 'plot_list' %}" class="button">Участки</a>
+                <a href="{% url 'member_list' %}" class="button">Члены совета</a>
+                <a href="{% url 'events' %}" class="button">Мероприятия</a>
+                <a href="{% url 'resources' %}" class="button">Полезные материалы</a>
+            {% endif %}
+    </section>
+
+    <main>
+        <div class="location">
+            <h1>Предстоящие события</h1>
+        </div>
+        <br>
+        <section class="events">
+            {% for event in events %}
+                <article class="events__card">
+                    <div class="events__image-wrapper">
+                        {% if event.photo %}
+                        <img src="{{ event.photo.url }}" alt="Фото {{ event.title }}" class="events__card-image">
+                        {% endif %}
+                    </div>
+                    <h2 class="events__card-title">{{ event.title }}</h2>
+                </article>
+            {% endfor %}
+        </section>
+    </main>
+</body>
+</html>

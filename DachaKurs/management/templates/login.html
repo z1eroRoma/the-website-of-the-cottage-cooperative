@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Вход - Дачный кооператив</title>
+    <link rel="stylesheet" type="text/css" href="/static/signup.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Вход</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Войти</button>
+            <button><a href="{% url 'home' %}" class="button">На главную</a></button>
+        </form>
+    </div>
+</body>
+</html>

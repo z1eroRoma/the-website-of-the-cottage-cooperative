@@ -1,0 +1,109 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="ru">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>{{ event.title }}</title>-->
+<!--    <link rel="stylesheet" type="text/css" href="/static/style.css">-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>{{ event.title }}</h1>-->
+<!--    <p>{{ event.date }}</p>-->
+<!--    <p>{{ event.description }}</p>-->
+<!--    <a href="{% url 'edit_event' event.id %}">Редактировать</a>-->
+<!--    <a href="{% url 'events' %}">Вернуться</a>-->
+<!--    <a href="{% url 'delete_event' event.id %}">Удалить</a>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ event.title }}</title>
+    <link rel="stylesheet" type="text/css" href="/static/detail.css">
+<!--    <style>-->
+<!--        .event-container {-->
+<!--            background-color: #fff;-->
+<!--            padding: 20px;-->
+<!--            border: 2px solid #ddd;-->
+<!--            border-radius: 10px;-->
+<!--            max-width: 600px;-->
+<!--            margin: 20px auto;-->
+<!--            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);-->
+<!--            text-align: center;-->
+<!--        }-->
+<!--        .event-container h1 {-->
+<!--            margin-bottom: 10px;-->
+<!--            color: #333;-->
+<!--        }-->
+<!--        .event-container p {-->
+<!--            color: #666;-->
+<!--            margin: 5px 0;-->
+<!--        }-->
+<!--        .event-buttons {-->
+<!--            margin-top: 20px;-->
+<!--        }-->
+<!--        .event-buttons a {-->
+<!--            display: inline-block;-->
+<!--            margin: 5px 10px;-->
+<!--            padding: 10px 20px;-->
+<!--            background-color: #86e01f;-->
+<!--            border: none;-->
+<!--            border-radius: 5px;-->
+<!--            text-decoration: none;-->
+<!--            color: #000;-->
+<!--            cursor: pointer;-->
+<!--        }-->
+<!--        .event-buttons a:hover {-->
+<!--            background-color: #C2F56E;-->
+<!--        }-->
+<!--    </style>-->
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="contacts">
+                <h1>Дачный кооператив "Ромашка"</h1>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="logo">
+                <img src="/static/media/logo1.png" alt="Логотип вашего магазина">
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Поиск по сайту...">
+                <button>Найти</button>
+            </div>
+            <div class="header-buttons">
+                <div class="phone-numbers">
+                    <p>Ежедневно с 9:00 до 21:00</p>
+                    <p>8 (800) 800-00-00</p>
+                    <p>youremail@mailbox.ru</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">На главную</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="event-container">
+            <h1>{{ event.title }}</h1>
+            <p>{{ event.date }}</p>
+            {% if event.photo %}
+            <img src="{{ event.photo.url }}" alt="Фото {{ event.title }}" class="event-photo">
+            {% endif %}
+            <p>{{ event.description }}</p>
+            <div class="event-buttons">
+                <a href="{% url 'edit_event' event.id %}">Редактировать</a>
+                <a href="{% url 'events' %}">Вернуться</a>
+                <a href="{% url 'delete_event' event.id %}">Удалить</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="ru">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Добавить мероприятие</title>-->
+<!--    <link rel="stylesheet" type="text/css" href="/static/style.css">-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>Добавить мероприятие</h1>-->
+<!--    <form method="post">-->
+<!--        {% csrf_token %}-->
+<!--        {{ form.as_p }}-->
+<!--        <button type="submit">Добавить</button>-->
+<!--    </form>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить мероприятие</title>
+    <link rel="stylesheet" type="text/css" href="/static/add.css">
+<!--    <style>-->
+<!--        .add-event-container {-->
+<!--            background-color: #fff;-->
+<!--            padding: 20px;-->
+<!--            border: 2px solid #ddd;-->
+<!--            border-radius: 10px;-->
+<!--            max-width: 600px;-->
+<!--            margin: 0 auto;-->
+<!--            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);-->
+<!--        }-->
+<!--        .add-event-container h1 {-->
+<!--            margin-bottom: 20px;-->
+<!--            text-align: center;-->
+<!--        }-->
+<!--        .add-event-container form {-->
+<!--            display: flex;-->
+<!--            flex-direction: column;-->
+<!--            align-items: center;-->
+<!--        }-->
+<!--        .add-event-container form button {-->
+<!--            margin-top: 20px;-->
+<!--            padding: 10px 20px;-->
+<!--            background-color: #86e01f;-->
+<!--            border: none;-->
+<!--            border-radius: 5px;-->
+<!--            cursor: pointer;-->
+<!--            font-size: 16px;-->
+<!--            text-decoration: none;-->
+<!--            color: #000;-->
+<!--        }-->
+<!--        .add-event-container form button:hover {-->
+<!--            background-color: #C2F56E;-->
+<!--        }-->
+<!--    </style>-->
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="contacts">
+                <h1>Дачный кооператив "Ромашка"</h1>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="logo">
+                <img src="/static/media/logo1.png" alt="Логотип вашего магазина">
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Поиск по сайту...">
+                <button>Найти</button>
+            </div>
+            <div class="header-buttons">
+                <div class="phone-numbers">
+                    <p>Ежедневно с 9:00 до 21:00</p>
+                    <p>8 (800) 800-00-00</p>
+                    <p>youremail@mailbox.ru</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+            <a href="{% url 'home' %}">На главную</a>
+    </nav>
+
+    <main>
+        <section class="form-container">
+            <h1>Добавить мероприятие</h1>
+            <form method="post" action="{% url 'add_event' %}" enctype="multipart/form-data">
+                <div class="form-group">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                </div>
+                <button type="submit">Добавить</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

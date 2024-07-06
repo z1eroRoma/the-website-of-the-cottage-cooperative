@@ -1,0 +1,137 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="RU">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Детали участка</title>-->
+<!--    <link rel="stylesheet" type="text/css" href="/static/style.css">-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>Участок №{{ plot.plot_number }}</h1>-->
+<!--    <p>Площадь: {{ plot.area }} метров квадратных</p>-->
+<!--    <p>Владелец: {{ plot.owner.last_name }}</p>-->
+<!--    <a href="{% url 'edit_plot' plot.id %}">Редактировать</a>-->
+<!--    <form method="post" action="{% url 'delete_plot' plot.id %}">-->
+<!--        {% csrf_token %}-->
+<!--        <button type="submit">Удалить</button>-->
+<!--    </form>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="RU">
+<head>
+    <meta charset="UTF-8">
+    <title>Детали участка - Дачный кооператив</title>
+    <link rel="stylesheet" type="text/css" href="/static/detail.css">
+<!--    <style>-->
+<!--        .plot-details-container {-->
+<!--            background-color: #fff;-->
+<!--            padding: 20px;-->
+<!--            border: 2px solid #ddd;-->
+<!--            border-radius: 10px;-->
+<!--            max-width: 600px;-->
+<!--            margin: 0 auto;-->
+<!--            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);-->
+<!--            text-align: center;-->
+<!--        }-->
+<!--        .plot-details-container h1 {-->
+<!--            margin-bottom: 20px;-->
+<!--        }-->
+<!--        .plot-details-container p {-->
+<!--            margin: 10px 0;-->
+<!--        }-->
+<!--        .plot-details-container a, .plot-details-container button {-->
+<!--            display: inline-block;-->
+<!--            margin: 10px;-->
+<!--            padding: 10px 20px;-->
+<!--            background-color: #86e01f;-->
+<!--            border: none;-->
+<!--            border-radius: 5px;-->
+<!--            cursor: pointer;-->
+<!--            font-size: 16px;-->
+<!--            text-decoration: none;-->
+<!--            color: #000;-->
+<!--        }-->
+<!--        .plot-details-container button:hover, .plot-details-container a:hover {-->
+<!--            background-color: #C2F56E;-->
+<!--        }-->
+<!--        header {-->
+<!--            display: flex;-->
+<!--            justify-content: space-between;-->
+<!--            align-items: center;-->
+<!--            background-color: #fff;-->
+<!--            padding: 20px 50px;-->
+<!--            border-bottom: 2px solid #86e01f;-->
+<!--        }-->
+<!--        nav {-->
+<!--            background-color: #f4f4f4;-->
+<!--            padding: 10px;-->
+<!--            text-align: center;-->
+<!--        }-->
+<!--        nav ul {-->
+<!--            list-style-type: none;-->
+<!--            margin: 0;-->
+<!--            padding: 0;-->
+<!--        }-->
+<!--        nav ul li {-->
+<!--            display: inline;-->
+<!--            margin: 0 15px;-->
+<!--        }-->
+<!--        nav ul li a {-->
+<!--            text-decoration: none;-->
+<!--            color: #000;-->
+<!--            font-weight: bold;-->
+<!--        }-->
+<!--        main {-->
+<!--            padding: 20px 50px;-->
+<!--        }-->
+<!--    </style>-->
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="contacts">
+                <h1>Дачный кооператив "Ромашка"</h1>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="logo">
+                <img src="/static/media/logo1.png" alt="Логотип вашего магазина">
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Поиск по сайту...">
+                <button>Найти</button>
+            </div>
+            <div class="header-buttons">
+                <div class="phone-numbers">
+                    <p>Ежедневно с 9:00 до 21:00</p>
+                    <p>8 (800) 800-00-00</p>
+                    <p>youremail@mailbox.ru</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">На главную</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="plot-details-container">
+            <h1>Участок №{{ plot.plot_number }}</h1>
+            {% if plot.photo %}
+            <img src="{{ plot.photo.url }}" alt="Фото {{ plot.plot_number }}" class="plot-photo">
+            {% endif %}
+            <p>Площадь: {{ plot.area }} метров квадратных</p>
+            <p>Владелец: {{ plot.owner.last_name }}</p>
+            <a href="{% url 'edit_plot' plot.id %}">Редактировать</a>
+            <form method="post" action="{% url 'delete_plot' plot.id %}" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit">Удалить</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

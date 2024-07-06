@@ -1,0 +1,35 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="RU">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Sign Up</title>-->
+<!--    <link rel="stylesheet" type="text/css" href="../static/style.css">-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h2>Sign up</h2>-->
+<!--    <form method="post">-->
+<!--        {% csrf_token %}-->
+<!--        {{ form.as_p }}-->
+<!--        <button type="submit">Sign up</button>-->
+<!--    </form>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация - Дачный кооператив</title>
+    <link rel="stylesheet" type="text/css" href="/static/signup.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Регистрация</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Зарегистрироваться</button>
+        </form>
+    </div>
+</body>
+</html>
